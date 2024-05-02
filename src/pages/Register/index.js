@@ -32,22 +32,17 @@ export default function Register({ navigation }) {
         navigation.goBack();
     }
 
-    
+
 
 
     const [loading, setLoading] = useState(false);
     const [sama, setSama] = useState(true)
     const [data, setData] = useState({
         api_token: api_token,
-        level: 'IBU',
-        posyandu: "Kasih ibu 15",
-        desa: "Kertamulya",
-        kecamatan: "Padalarang",
+        username: '',
         nama_lengkap: '',
+        email: '',
         telepon: '',
-        nama_anak: '',
-        tanggal_lahir: moment().format('YYYY-MM-DD'),
-        jenis_kelamin: 'Laki-laki',
         password: '',
         repassword: '',
 
@@ -60,31 +55,31 @@ export default function Register({ navigation }) {
         console.log(data);
         if (
             data.nama_lengkap.length === 0 &&
-            data.telepon.length === 0 &&
+            data.email.length === 0 &&
             data.password.length === 0
 
         ) {
             showMessage({
-                message: 'Formulir pendaftaran tidak boleh kosong !',
+                message: 'Form cannot empty !',
             });
         } else if (data.nama_lengkap.length === 0) {
             showMessage({
-                message: 'Masukan nama lengkap ibu',
+                message: 'Enter your name',
             });
         }
 
-        else if (data.telepon.length === 0) {
+        else if (data.email.length === 0) {
             showMessage({
-                message: 'Masukan nomor telepon',
+                message: 'Enter your email',
             });
         }
         else if (data.password.length === 0) {
             showMessage({
-                message: 'Masukan kata sandi kamu',
+                message: 'Enter your password',
             });
         } else if (data.repassword.length === 0) {
             showMessage({
-                message: 'Ulangi kata sandi kamu',
+                message: 'Re-enter your password',
             });
         } else {
 
@@ -124,32 +119,32 @@ export default function Register({ navigation }) {
 
 
     return (
-      
-            <ImageBackground 
-            source={require('../../assets/bgimg.png')}
-                style={{
-                    flex: 1,
-                    width:'100%',
-                    height:'100%',
-                    
-                    
+
+        <ImageBackground
+
+            style={{
+                flex: 1,
+                width: '100%',
+                height: '100%',
+
+
+            }}>
+
+            <MyHeader judul="Register" onPress={backPage} />
+
+
+
+            {/* <Switch onValueChange={toggleSwitch} value={isEnabled} /> */}
+            <ScrollView showsVerticalScrollIndicator={false} style={styles.page}>
+
+
+
+
+                <View style={{
+                    padding: 10
+
                 }}>
-
-                <MyHeader judul="Register" onPress={backPage}/>
-
-
-                
-                {/* <Switch onValueChange={toggleSwitch} value={isEnabled} /> */}
-                <ScrollView showsVerticalScrollIndicator={false} style={styles.page}>
-
-
-
-
-                    <View style={{
-                    padding:10
-
-                    }}>
-                        {/* <Text style={{
+                    {/* <Text style={{
                             fontSize: MyDimensi / 2.5,
                             fontFamily: fonts.primary[600],
                             color: colors.black,
@@ -157,74 +152,88 @@ export default function Register({ navigation }) {
                             marginBottom:'10%',
                             marginTop:0
                         }}>REGISTRASI</Text> */}
-                        {/* <Text style={{
+                    {/* <Text style={{
                             fontSize: MyDimensi / 4,
                             fontFamily: fonts.primary[400],
                             color: colors.primary,
                             marginBottom: 10,
                         }}>Silahkan daftar agar bisa login</Text> */}
 
-                            {/* NAMA LENGKAP */}
-                            <MyInput iconname="person" label='Nama Lengkap' placeholder='Masukan Nama Lengkap'/>
-                            <MyGap jarak={20}/>
+                    {/* NAMA LENGKAP */}
+                    <MyInput iconname="person" onChangeText={x => {
+                        setData({
+                            ...data,
+                            nama_lengkap: x
+                        })
+                    }} label='Full Name' placeholder='Enter full name' />
+                    <MyGap jarak={20} />
+                    <MyInput iconname="at" onChangeText={x => {
+                        setData({
+                            ...data,
+                            username: x
+                        })
+                    }} label='Username' placeholder='Enter username' />
+                    <MyGap jarak={20} />
+                    <MyInput iconname="mail" onChangeText={x => {
+                        setData({
+                            ...data,
+                            email: x
+                        })
+                    }} label='Email' placeholder='Enter email' />
+                    <MyGap jarak={20} />
 
-                            {/* JENIS KELAMIN */}
-                            <MyPicker data={[
-        {value:'laki-laki', label:'Laki-laki'},
-        {value:'perempuan', label:'Perempuan'},
-      ]}  label="Jenis Kelamin" iconname="male-female"/>
-                            <MyGap jarak={20}/>
 
-                            {/* NOMOR TELEPOM */}
-                            <MyInput label='Nomor Telepon' placeholder='Masukan Nomor Telepon' iconname="call"/>
-                            <MyGap jarak={20}/>
+                    {/* NOMOR TELEPOM */}
+                    <MyInput label='Phone Number' onChangeText={x => {
+                        setData({
+                            ...data,
+                            telepon: x
+                        })
+                    }} placeholder='Enter phone number' iconname="call" />
+                    <MyGap jarak={20} />
 
-                            
-                            {/* ASAL SEKOLAH */}
-                            <MyInput label='Asal Sekolah'  placeholder='Masukan Asal Sekolah' iconname="school"/>
-                            <MyGap jarak={20}/>
 
-                            
-                        {/*PASSWORD*/}
-                        <MyInput iconname="lock-closed"
-                            placeholder="Masukan Password"
-                            label="Password"
-                            value={data.password}
-                            secureTextEntry={true}
-                            onChangeText={value =>
-                                setData({
-                                    ...data,
-                                    password: value,
-                                })
+
+                    {/*PASSWORD*/}
+                    <MyInput iconname="lock-closed"
+                        placeholder="Enter Password"
+                        label="Password"
+                        value={data.password}
+                        secureTextEntry={true}
+                        onChangeText={value =>
+                            setData({
+                                ...data,
+                                password: value,
+                            })
+                        }
+                    />
+
+
+                    {/* INPUT PASSWORD ULANG */}
+                    <MyGap jarak={20} />
+                    <MyInput
+                        borderColor={sama ? colors.border : colors.danger}
+                        borderWidth={sama ? 1 : 1}
+                        placeholder="Re-enter Password"
+                        label="Re-enter password"
+                        iconname="lock-closed"
+                        secureTextEntry
+                        onChangeText={value => {
+
+                            if (value !== data.password) {
+                                setSama(false)
+                            } else {
+                                setSama(true)
                             }
-                        />
 
-                   
-                        {/* INPUT PASSWORD ULANG */}
-                        <MyGap jarak={20} />
-                        <MyInput
-                            borderColor={sama ? colors.white : colors.danger}
-                            borderWidth={sama ? 1 : 1}
-                            placeholder="Masukan ulang kata sandi"
-                            label="Masukan ulang kata sandi"
-                            iconname="lock-closed"
-                            secureTextEntry
-                            onChangeText={value => {
+                            setData({
+                                ...data,
+                                repassword: value,
+                            })
+                        }
 
-                                if (value !== data.password) {
-                                    setSama(false)
-                                } else {
-                                    setSama(true)
-                                }
-
-                                setData({
-                                    ...data,
-                                    repassword: value,
-                                })
-                            }
-
-                            }
-                        />
+                        }
+                    />
 
 
 
@@ -241,25 +250,8 @@ export default function Register({ navigation }) {
 
                         </>
                     }
-                    
-                    <TouchableNativeFeedback onPress={() => navigation.goBack()}>
-                        <View style={{padding:10, alignItems:'center', flexDirection:"row", justifyContent:"center"}}>
-                            <Text style={{
-                                 fontSize: MyDimensi / 4,
-              fontFamily: fonts.primary[400],
-              textAlign: 'center',
-              color: colors.white
-                            }}>Sudah mempunyai akun?  </Text>
-                                 <Text style={{
-                                 fontSize: MyDimensi / 4,
-              fontFamily: fonts.primary[600],
-              textAlign: 'center',
-              color: colors.secondary
-                            }}> Login</Text>
-                            
-                        </View>
-                    </TouchableNativeFeedback>
-                    
+
+
 
 
                     {loading && <View style={{
@@ -269,22 +261,23 @@ export default function Register({ navigation }) {
                     }}>
                         <ActivityIndicator color={colors.primary} size="large" />
                     </View>}
-                    </View>
-                    <MyGap jarak={40} />
+                </View>
+                <MyGap jarak={40} />
 
 
-                    <MyGap jarak={10} />
-                </ScrollView>
+                <MyGap jarak={10} />
+            </ScrollView>
 
-            </ImageBackground>
+        </ImageBackground>
 
     );
 }
 
 const styles = StyleSheet.create({
     page: {
-    position:"relative"
-   
+        position: "relative",
+        backgroundColor: colors.white
+
 
     },
     image: {

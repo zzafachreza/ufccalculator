@@ -95,31 +95,32 @@ export default function HoursMeters({ navigation }) {
             fontSize: 12,
             flex: 1,
             textAlign: 'center'
-          }}>Urea Formaldehyde Concretate</Text>
+          }}>Urea Formaldehyde Concentrate</Text>
           <TouchableWithoutFeedback onPress={() => {
-            Alert.alert(MYAPP, 'Apakah kamu yakin akan keluar ?', [
-              {
-                text: 'Batal',
-                style: "cancel"
-              },
-              {
-                text: 'Keluar',
-                onPress: () => {
-                  storeData('user', null);
+            // Alert.alert(MYAPP, 'Apakah kamu yakin akan keluar ?', [
+            //   {
+            //     text: 'Batal',
+            //     style: "cancel"
+            //   },
+            //   {
+            //     text: 'Keluar',
+            //     onPress: () => {
+            //       storeData('user', null);
 
-                  navigation.reset({
-                    index: 0,
-                    routes: [{ name: 'Splash' }],
-                  });
-                }
-              }
-            ])
+            //       navigation.reset({
+            //         index: 0,
+            //         routes: [{ name: 'Splash' }],
+            //       });
+            //     }
+            //   }
+            // ])
+            navigation.navigate('Account')
           }}>
             <View style={{
               padding: 10,
 
             }}>
-              <Icon type='ionicon' name='log-out-outline' size={25} />
+              <Icon type='ionicon' name='person-outline' size={25} />
             </View>
           </TouchableWithoutFeedback>
         </View>
@@ -135,7 +136,7 @@ export default function HoursMeters({ navigation }) {
             }}>2</Text></Text>
             <Text style={{
               fontFamily: fonts.secondary[600], fontSize: 12,
-            }}>Kons pada GC (%Vol)*</Text>
+            }}>Input Concentration from GC (%vol)</Text>
 
             <View style={{
               flexDirection: 'row'
@@ -144,7 +145,7 @@ export default function HoursMeters({ navigation }) {
                 flex: 1,
                 paddingRight: 5,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     co2_in: x
@@ -154,7 +155,7 @@ export default function HoursMeters({ navigation }) {
               <View style={{
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     co2_out: x
@@ -165,12 +166,12 @@ export default function HoursMeters({ navigation }) {
                 paddingLeft: 5,
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     co2_rey: x
                   })
-                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYLCE" />
+                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYCLE" />
               </View>
             </View>
           </View>
@@ -184,7 +185,7 @@ export default function HoursMeters({ navigation }) {
             }}></Text></Text>
             <Text style={{
               fontFamily: fonts.secondary[600], fontSize: 12,
-            }}>Kons pada GC (%Vol)*</Text>
+            }}>Input Concentration from GC (%vol)</Text>
 
             <View style={{
               flexDirection: 'row'
@@ -193,7 +194,7 @@ export default function HoursMeters({ navigation }) {
                 flex: 1,
                 paddingRight: 5,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     co_in: x
@@ -203,7 +204,7 @@ export default function HoursMeters({ navigation }) {
               <View style={{
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     co_out: x
@@ -214,12 +215,12 @@ export default function HoursMeters({ navigation }) {
                 paddingLeft: 5,
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     co_rey: x
                   })
-                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYLCE" />
+                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYCLE" />
               </View>
             </View>
           </View>
@@ -233,7 +234,7 @@ export default function HoursMeters({ navigation }) {
             }}>2</Text></Text>
             <Text style={{
               fontFamily: fonts.secondary[600], fontSize: 12,
-            }}>Kons pada GC (%Vol)*</Text>
+            }}>Input Concentration from GC (%vol)</Text>
 
             <View style={{
               flexDirection: 'row'
@@ -242,7 +243,7 @@ export default function HoursMeters({ navigation }) {
                 flex: 1,
                 paddingRight: 5,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     o2_in: x
@@ -252,7 +253,7 @@ export default function HoursMeters({ navigation }) {
               <View style={{
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     o2_out: x
@@ -263,12 +264,12 @@ export default function HoursMeters({ navigation }) {
                 paddingLeft: 5,
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     o2_rey: x
                   })
-                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYLCE" />
+                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYCLE" />
               </View>
             </View>
           </View>
@@ -282,7 +283,7 @@ export default function HoursMeters({ navigation }) {
             }}>3</Text>OH</Text>
             <Text style={{
               fontFamily: fonts.secondary[600], fontSize: 12,
-            }}>Sample Vol ( L)</Text>
+            }}>Input Sample Volume</Text>
 
             <View style={{
               flexDirection: 'row'
@@ -291,7 +292,7 @@ export default function HoursMeters({ navigation }) {
                 flex: 1,
                 paddingRight: 5,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     ch1_in: x
@@ -301,7 +302,7 @@ export default function HoursMeters({ navigation }) {
               <View style={{
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     ch1_out: x
@@ -312,19 +313,19 @@ export default function HoursMeters({ navigation }) {
                 paddingLeft: 5,
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     ch1_rey: x
                   })
-                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYLCE" />
+                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYCLE" />
               </View>
             </View>
 
             <Text style={{
               marginTop: 10,
               fontFamily: fonts.secondary[600], fontSize: 12,
-            }}>Temp (°C)</Text>
+            }}>Input Sample Temperature (°C)</Text>
 
             <View style={{
               flexDirection: 'row'
@@ -333,7 +334,7 @@ export default function HoursMeters({ navigation }) {
                 flex: 1,
                 paddingRight: 5,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     ch2_in: x
@@ -343,7 +344,7 @@ export default function HoursMeters({ navigation }) {
               <View style={{
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     ch2_out: x
@@ -354,19 +355,19 @@ export default function HoursMeters({ navigation }) {
                 paddingLeft: 5,
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     ch2_rey: x
                   })
-                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYLCE" />
+                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYCLE" />
               </View>
             </View>
 
             <Text style={{
               marginTop: 10,
               fontFamily: fonts.secondary[600], fontSize: 12,
-            }}>Area*</Text>
+            }}>Input Concentration from GC (%vol)</Text>
 
             <View style={{
               flexDirection: 'row'
@@ -375,7 +376,7 @@ export default function HoursMeters({ navigation }) {
                 flex: 1,
                 paddingRight: 5,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     ch3_in: x
@@ -385,7 +386,7 @@ export default function HoursMeters({ navigation }) {
               <View style={{
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     ch3_out: x
@@ -396,12 +397,12 @@ export default function HoursMeters({ navigation }) {
                 paddingLeft: 5,
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     ch3_rey: x
                   })
-                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYLCE" />
+                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYCLE" />
               </View>
             </View>
 
@@ -416,7 +417,7 @@ export default function HoursMeters({ navigation }) {
             }}></Text></Text>
             <Text style={{
               fontFamily: fonts.secondary[600], fontSize: 12,
-            }}>Sample Vol ( L)</Text>
+            }}>Input Sample Volume</Text>
 
             <View style={{
               flexDirection: 'row'
@@ -425,7 +426,7 @@ export default function HoursMeters({ navigation }) {
                 flex: 1,
                 paddingRight: 5,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     hc1_in: x
@@ -435,7 +436,7 @@ export default function HoursMeters({ navigation }) {
               <View style={{
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     hc1_out: x
@@ -446,19 +447,19 @@ export default function HoursMeters({ navigation }) {
                 paddingLeft: 5,
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     hc1_rey: x
                   })
-                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYLCE" />
+                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYCLE" />
               </View>
             </View>
 
             <Text style={{
               marginTop: 10,
               fontFamily: fonts.secondary[600], fontSize: 12,
-            }}>Temp (°C)</Text>
+            }}>Input Sample Temperature (°C)</Text>
 
             <View style={{
               flexDirection: 'row'
@@ -467,7 +468,7 @@ export default function HoursMeters({ navigation }) {
                 flex: 1,
                 paddingRight: 5,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     hc2_in: x
@@ -477,7 +478,7 @@ export default function HoursMeters({ navigation }) {
               <View style={{
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     hc2_out: x
@@ -488,19 +489,19 @@ export default function HoursMeters({ navigation }) {
                 paddingLeft: 5,
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     hc2_rey: x
                   })
-                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYLCE" />
+                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYCLE" />
               </View>
             </View>
 
             <Text style={{
               marginTop: 10,
               fontFamily: fonts.secondary[600], fontSize: 12,
-            }}>Vol Titrasi (mL)</Text>
+            }}>Input Titration Volume (mL)</Text>
 
             <View style={{
               flexDirection: 'row'
@@ -509,7 +510,7 @@ export default function HoursMeters({ navigation }) {
                 flex: 1,
                 paddingRight: 5,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     hc3_in: x
@@ -519,7 +520,7 @@ export default function HoursMeters({ navigation }) {
               <View style={{
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     hc3_out: x
@@ -530,12 +531,12 @@ export default function HoursMeters({ navigation }) {
                 paddingLeft: 5,
                 flex: 1,
               }}>
-                <MyInput onChangeText={x => {
+                <MyInput icon={false} onChangeText={x => {
                   setKirim({
                     ...kirim,
                     hc3_rey: x
                   })
-                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYLCE" />
+                }} keyboardType='number-pad' iconname="reload-circle-outline" label="RECYCLE" />
               </View>
             </View>
             <Text style={{
@@ -547,7 +548,7 @@ export default function HoursMeters({ navigation }) {
             }}>2</Text>SO<Text style={{
               fontSize: 7
             }}>4</Text> </Text>
-            <MyInput onChangeText={x => {
+            <MyInput icon={false} onChangeText={x => {
               setKirim({
                 ...kirim,
                 hcn: x
@@ -558,11 +559,18 @@ export default function HoursMeters({ navigation }) {
           </View>
 
           {/* DATA INI AKAN MASUK KE DATABASE DAN AKAN KE WHATSAAP SEPERTI DI DOKUMEN DAN DESAINNYA SEPERTI DI FIGMA */}
-          {!loading && <MyButton title="Kirim" onPress={sendServer} />}
+          {!loading && <MyButton title="Calculate" onPress={sendServer} />}
           {loading && <ActivityIndicator size="large" color={colors.primary} />}
         </View>
-
+        <Text style={{
+          fontFamily: fonts.secondary[400],
+          textAlign: 'center',
+          fontSize: 14,
+          color: colors.black,
+          marginBottom: 10,
+        }}>Copyright © 2024 | Laboratory of Pupuk Kaltim</Text>
       </ScrollView>
+
     </View>
   )
 }

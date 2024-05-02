@@ -14,7 +14,7 @@ export default function Login({ navigation }) {
 
   const [kirim, setKirim] = useState({
     api_token: api_token,
-    username: null,
+    email: null,
     password: null
   });
   const [loading, setLoading] = useState(false);
@@ -30,12 +30,12 @@ export default function Login({ navigation }) {
   const masuk = () => {
 
 
-    if (kirim.username == null && kirim.password == null) {
-      Alert.alert(MYAPP, 'username dan Password tidak boleh kosong !');
-    } else if (kirim.username == null) {
-      Alert.alert(MYAPP, 'username tidak boleh kosong !');
+    if (kirim.email == null && kirim.password == null) {
+      Alert.alert(MYAPP, 'email and Password cannot empty !');
+    } else if (kirim.email == null) {
+      Alert.alert(MYAPP, 'email cannot empty !');
     } else if (kirim.password == null) {
-      Alert.alert(MYAPP, 'Password tidak boleh kosong !');
+      Alert.alert(MYAPP, 'Password cannot empty !');
     } else {
 
 
@@ -87,6 +87,7 @@ export default function Login({ navigation }) {
   return (
     <View style={{
       flex: 1,
+      backgroundColor: colors.white
 
     }}>
 
@@ -102,41 +103,39 @@ export default function Login({ navigation }) {
         }}>
 
           <Image source={require('../../assets/icon.png')} style={{
-            height: 250, width: 250,
+            width: 250,
+            height: 120,
             alignItems: 'center',
-            resizeMode: 'contain',
             alignSelf: "center",
-            marginTop: -30
-          }} />
 
+          }} />
+          <Text style={{
+            fontFamily: fonts.secondary[600],
+            fontSize: 15, color: colors.black,
+            textAlign: 'center'
+          }}>Urea Formaldehyde Concentrate</Text>
 
           <Text style={{
+            marginTop: 30,
             fontFamily: fonts.primary[600],
             color: "black",
             fontSize: MyDimensi / 3,
-            marginTop: 10,
             textAlign: "center"
 
           }}>LOGIN</Text>
-          <Text style={{
-            fontFamily: fonts.primary[400],
-            color: "black",
-            fontSize: MyDimensi / 4,
-            textAlign: "center"
 
-          }}>Silahkan login dengan akun anda</Text>
 
-          {/* USERNAME INPUT */}
+          {/* email INPUT */}
 
 
           <MyGap jarak={25} />
 
-          <MyInput label="Username" iconname="person" onChangeText={x => {
+          <MyInput label="Email" iconname="mail" onChangeText={x => {
             setKirim({
               ...kirim,
-              username: x
+              email: x
             })
-          }} placeholder="Masukan Username" />
+          }} placeholder="Enter your email" />
 
 
           <MyGap jarak={20} />
@@ -148,7 +147,7 @@ export default function Login({ navigation }) {
               ...kirim,
               password: x
             })
-          }} iconname="lock-closed" placeholder="Masukan password" secureTextEntry={true} />
+          }} iconname="lock-closed" placeholder="Enter your password" secureTextEntry={true} />
 
 
           {/* BUTTON LOGIN */}
@@ -162,13 +161,23 @@ export default function Login({ navigation }) {
 
 
 
-            <MyButton
-              onPress={masuk}
-              title="Login"
+            <>
+              <MyButton
+                onPress={masuk}
+                title="Login"
 
 
-              Icons="log-in-outline"
-            />
+                Icons="log-in-outline"
+              />
+              <TouchableWithoutFeedback onPress={() => navigation.navigate('Register')}>
+                <Text style={{
+                  fontFamily: fonts.secondary[600],
+                  fontSize: 14,
+                  textAlign: "center",
+                  marginTop: 20,
+                }}>Don't have an account ? Please register here</Text>
+              </TouchableWithoutFeedback>
+            </>
 
 
           }
@@ -190,7 +199,15 @@ export default function Login({ navigation }) {
         }}>
           <ActivityIndicator color={colors.primary} size="large" />
         </View>}
+
       </ScrollView>
+      <Text style={{
+        fontFamily: fonts.secondary[400],
+        textAlign: 'center',
+        fontSize: 14,
+        color: colors.black,
+        marginBottom: 10,
+      }}>Copyright © 2024 | Laboratory of Pupuk Kaltim</Text>
     </View>
 
 

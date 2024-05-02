@@ -71,22 +71,20 @@ export default function Splash({ navigation }) {
         }}>
           <Animated.Image
             source={require('../../assets/icon.png')}
-            resizeMode="contain"
             style={{
-              width: 280,
-              height: 280
+              width: 250,
+              height: 100
             }}
           />
-          <MyGap jarak={20} />
+          <MyGap jarak={10} />
           <Animated.Text style={{
-            fontFamily: fonts.secondary[800],
-            fontSize: MyDimensi / 3,
+            fontFamily: fonts.secondary[600],
+            fontSize: 20,
             marginHorizontal: 20,
             color: colors.black,
-            marginTop: 5,
             marginBottom: text,
             textAlign: 'center',
-          }}>Urea Formaldehyde Concretate Process Calculator</Animated.Text>
+          }}>Urea Formaldehyde Concentrate (UFC) Calculator</Animated.Text>
 
           <ActivityIndicator color={colors.primary} size="large" />
         </View>

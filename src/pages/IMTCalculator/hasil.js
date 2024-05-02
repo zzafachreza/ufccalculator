@@ -101,7 +101,7 @@ export default function HasilIMTCalculator({ navigation, route }) {
                             textAlign: 'center',
                             fontFamily: fonts.secondary[800],
                             fontSize: 13,
-                        }}>RECYLCE</Text>
+                        }}>RECYCLE</Text>
                         <Text style={{
                             textAlign: 'center',
                             color: colors.success,
@@ -121,8 +121,8 @@ export default function HasilIMTCalculator({ navigation, route }) {
                 <View style={{ marginVertical: 10, borderBottomWidth: 1, paddingBottom: 10, borderBottomColor: colors.border }}>
                     <Text style={{
                         fontFamily: fonts.secondary[800], fontSize: 15,
-                    }}>CO<Text style={{ fontSize: 10, }}>2</Text></Text>
-                    <Text style={{ fontFamily: fonts.secondary[600], fontSize: 13, }}>Satuan (%Vol)</Text>
+                    }}>CO<Text style={{ fontSize: 10, }}>2</Text> (%Vol)</Text>
+
 
                     <MyList inlet={CO2_IN} outlet={CO2_OUT} reycle={CO2_REY} />
 
@@ -130,8 +130,7 @@ export default function HasilIMTCalculator({ navigation, route }) {
                 <View style={{ marginVertical: 10, borderBottomWidth: 1, paddingBottom: 10, borderBottomColor: colors.border }}>
                     <Text style={{
                         fontFamily: fonts.secondary[800], fontSize: 15,
-                    }}>CO<Text style={{ fontSize: 10, }}></Text></Text>
-                    <Text style={{ fontFamily: fonts.secondary[600], fontSize: 13, }}>Satuan (%Vol)</Text>
+                    }}>CO<Text style={{ fontSize: 10, }}></Text>(%Vol)</Text>
 
                     <MyList inlet={CO_IN} outlet={CO_OUT} reycle={CO_REY} />
 
@@ -148,8 +147,7 @@ export default function HasilIMTCalculator({ navigation, route }) {
                 <View style={{ marginVertical: 10, borderBottomWidth: 1, paddingBottom: 10, borderBottomColor: colors.border }}>
                     <Text style={{
                         fontFamily: fonts.secondary[800], fontSize: 15,
-                    }}>CH<Text style={{ fontSize: 10, }}>3</Text>OH</Text>
-                    <Text style={{ fontFamily: fonts.secondary[600], fontSize: 13, }}>Satuan (%Vol)</Text>
+                    }}>CH<Text style={{ fontSize: 10, }}>3</Text>OH (%Vol)</Text>
 
                     <MyList inlet={CH3OH_IN} outlet={CH3OH_OUT} reycle={CH3OH_REY} />
 
@@ -157,13 +155,19 @@ export default function HasilIMTCalculator({ navigation, route }) {
                 <View style={{ marginVertical: 10, borderBottomWidth: 1, paddingBottom: 10, borderBottomColor: colors.border }}>
                     <Text style={{
                         fontFamily: fonts.secondary[800], fontSize: 15,
-                    }}>HC<Text style={{ fontSize: 10, }}></Text>HO</Text>
-                    <Text style={{ fontFamily: fonts.secondary[600], fontSize: 13, }}>Satuan (%Vol)</Text>
+                    }}>HC<Text style={{ fontSize: 10, }}></Text>HO (%Vol)</Text>
 
                     <MyList inlet={HCHO_IN} outlet={HCHO_OUT} reycle={parseFloat(item.hcn).toFixed(3)} />
 
                 </View>
             </ScrollView>
+            <Text style={{
+                fontFamily: fonts.secondary[400],
+                textAlign: 'center',
+                fontSize: 14,
+                color: colors.black,
+                marginBottom: 10,
+            }}>Copyright © 2024 | Laboratory of Pupuk Kaltim</Text>
         </View>
     )
 }

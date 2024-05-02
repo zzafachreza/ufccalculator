@@ -44,13 +44,13 @@ export default function MyInput({
           alignItems: 'center',
           paddingVertical: !nolabel ? 5 : 0,
         }}>
-        {icon && !nolabel && <Icon type="ionicon" name={iconname} color={colorIcon} size={MyDimensi / 4} />}
+        {icon && !nolabel && <Icon type="ionicon" name={iconname} color={colorIcon} size={12} />}
 
 
         {!nolabel && <Text
           style={{
             fontFamily: fonts.secondary[600],
-            fontSize: MyDimensi / 5,
+            fontSize: 10,
             color: colorIcon,
             left: icon ? 10 : 5,
 
