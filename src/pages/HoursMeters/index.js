@@ -136,7 +136,7 @@ export default function HoursMeters({ navigation }) {
             }}>2</Text></Text>
             <Text style={{
               fontFamily: fonts.secondary[600], fontSize: 12,
-            }}>Input Concentration from GC (%vol)</Text>
+            }}>Input Concentration from GC (%Vol)</Text>
 
             <View style={{
               flexDirection: 'row'
@@ -185,7 +185,7 @@ export default function HoursMeters({ navigation }) {
             }}></Text></Text>
             <Text style={{
               fontFamily: fonts.secondary[600], fontSize: 12,
-            }}>Input Concentration from GC (%vol)</Text>
+            }}>Input Concentration from GC (%Vol)</Text>
 
             <View style={{
               flexDirection: 'row'
@@ -234,7 +234,7 @@ export default function HoursMeters({ navigation }) {
             }}>2</Text></Text>
             <Text style={{
               fontFamily: fonts.secondary[600], fontSize: 12,
-            }}>Input Concentration from GC (%vol)</Text>
+            }}>Input Concentration from GC (%Vol)</Text>
 
             <View style={{
               flexDirection: 'row'
@@ -367,7 +367,7 @@ export default function HoursMeters({ navigation }) {
             <Text style={{
               marginTop: 10,
               fontFamily: fonts.secondary[600], fontSize: 12,
-            }}>Input Concentration from GC (%vol)</Text>
+            }}>Input Concentration from GC (%Vol)</Text>
 
             <View style={{
               flexDirection: 'row'

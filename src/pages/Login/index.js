@@ -113,7 +113,7 @@ export default function Login({ navigation }) {
             fontFamily: fonts.secondary[600],
             fontSize: 15, color: colors.black,
             textAlign: 'center'
-          }}>Urea Formaldehyde Concentrate</Text>
+          }}>Urea Formaldehyde Concentrate (UFC) Calculator</Text>
 
           <Text style={{
             marginTop: 30,
